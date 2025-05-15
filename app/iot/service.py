@@ -3,7 +3,7 @@ import string
 from typing import Protocol, Awaitable, Any
 import asyncio
 
-from .message import Message, MessageType
+from app.iot.message import Message, MessageType
 
 
 def generate_id(length: int = 8) -> str:
@@ -17,7 +17,7 @@ class Device(Protocol):
     async def disconnect(self) -> None:
         ...
 
-    async def send_message(self, message_type: MessageType, data: str) -> None:
+    async def send_message(self, message_type: MessageType, data: str = "") -> None:
         ...
 
 
